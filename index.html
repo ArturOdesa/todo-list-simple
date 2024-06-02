@@ -9,8 +9,48 @@
     <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body class="body">
+<!--.wrapper START-->
 <div class="wrapper">
-
+<!--    .header START-->
+<header class="header">
+    <div class="container">
+    <h1 class="header-title">ToDo List</h1>
+        <div class="date">
+            <p class="today-date">03 June, Monday</p>
+        </div>
+    </div>
+</header>
+<!--    .main START-->
+    <main class="main">
+<!--        .container START-->
+        <div class="container">
+<!--        .input-holder-->
+        <div class="input-holder">
+            <input class="task-input" type="text" placeholder="Enter your task">
+            <span>Expiry Date:</span>
+            <input type="text" placeholder="Day">
+            <input type="text" placeholder="Month">
+            <button class="add-task-btn">Add task</button>
+        </div>
+        <p class="start-message">You don't have any tasks</p>
+            <select id="select">Sort by
+                    <option disabled selected>Sort by</option>
+                    <option>Expiry date</option>
+                <option>Creation date</option>
+            </select>
+        <ul class="task-list">
+            <li class="task-item"><input type="checkbox">task1 <button>edit</button><button>delete</button></li>
+            <li class="task-item"><input type="checkbox">task2 <button>edit</button><button>delete</button></li>
+            <li class="task-item"><input type="checkbox">task3 <button>edit</button><button>delete</button></li>
+        </ul>
+        <div class="extra-btn-holder">
+            <button>show all</button>
+            <button>uncompleted</button>
+            <button>expired</button>
+            <button>remove all</button>
+        </div>
+        </div>
+    </main>
 </div>
 
 <script src="./script/index.js"></script>
