@@ -14,9 +14,11 @@
 <!--    .header START-->
 <header class="header">
     <div class="container">
+        <div class="header-title-holder">
     <h1 class="header-title">ToDo List</h1>
         <div class="date">
             <p class="today-date">03 June, Monday</p>
+        </div>
         </div>
     </div>
 </header>
@@ -27,27 +29,19 @@
 <!--        .input-holder-->
         <div class="input-holder">
             <input class="task-input" type="text" placeholder="Enter your task">
-            <span>Expiry Date:</span>
-            <input type="text" placeholder="Day">
-            <input type="text" placeholder="Month">
-            <button class="add-task-btn">Add task</button>
+            <button class="add-task-btn">+</button>
         </div>
         <p class="start-message">You don't have any tasks</p>
-            <select id="select">Sort by
-                    <option disabled selected>Sort by</option>
-                    <option>Expiry date</option>
-                <option>Creation date</option>
-            </select>
+<!--            .task-list-->
         <ul class="task-list">
-            <li class="task-item"><input type="checkbox">task1 <button>edit</button><button>delete</button></li>
-            <li class="task-item"><input type="checkbox">task2 <button>edit</button><button>delete</button></li>
-            <li class="task-item"><input type="checkbox">task3 <button>edit</button><button>delete</button></li>
+
+
         </ul>
         <div class="extra-btn-holder">
-            <button>show all</button>
-            <button>uncompleted</button>
-            <button>expired</button>
-            <button>remove all</button>
+            <button class="extra-btn show-all">Show all</button>
+            <button class="extra-btn uncompleted">Uncompleted</button>
+            <button class="extra-btn completed-btn">Completed</button>
+            <button class="extra-btn remove-all">Remove all</button>
         </div>
         </div>
     </main>
@@ -56,3 +50,73 @@
 <script src="./script/index.js"></script>
 </body>
 </html>
+
+<!--<div class="wrapper">-->
+<!--    &lt;!&ndash;    .header START&ndash;&gt;-->
+<!--    <header class="header">-->
+<!--        <div class="container">-->
+<!--            <div class="header-title-holder">-->
+<!--                <h1 class="header-title">ToDo List</h1>-->
+<!--                <div class="date">-->
+<!--                    <p class="today-date">03 June, Monday</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </header>-->
+<!--    &lt;!&ndash;    .main START&ndash;&gt;-->
+<!--    <main class="main">-->
+<!--        &lt;!&ndash;        .container START&ndash;&gt;-->
+<!--        <div class="container">-->
+<!--            &lt;!&ndash;        .input-holder&ndash;&gt;-->
+<!--            <form class="input-holder">-->
+<!--                <input class="task-input" type="text" placeholder="Enter your task">-->
+<!--                <button class="add-task-btn">+</button>-->
+<!--            </form>-->
+<!--            <p class="start-message">You don't have any tasks</p>-->
+<!--            &lt;!&ndash;            .task-list&ndash;&gt;-->
+<!--            <ul class="task-list">-->
+
+<!--                <li class="task-item">-->
+<!--                    <input type="checkbox" class="checkbox">-->
+<!--                    <span class="task-text">task1</span>-->
+<!--                    <div class="task-btn-holder">-->
+<!--                        <button class="task-btn edit">-->
+<!--                        </button>-->
+<!--                        <button class="task-btn delete">-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="task-item">-->
+<!--                    <input type="checkbox" class="checkbox">-->
+<!--                    <span class="task-text expired-text">task2</span>-->
+<!--                    <div class="task-btn-holder">-->
+<!--                        <button class="task-btn edit">-->
+<!--                        </button>-->
+<!--                        <button class="task-btn delete">-->
+
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </li>-->
+
+<!--                <li class="task-item completed">-->
+<!--                    <input type="checkbox" class="checkbox">-->
+<!--                    <span class="task-text completed-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nobis.</span>-->
+<!--                    <div class="task-btn-holder">-->
+<!--                        <button class="task-btn edit">-->
+
+<!--                        </button>-->
+<!--                        <button class="task-btn delete">-->
+
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <div class="extra-btn-holder">-->
+<!--                <button class="extra-btn show-all">Show all</button>-->
+<!--                <button class="extra-btn uncompleted">Uncompleted</button>-->
+<!--                <button class="extra-btn completed-btn">Completed</button>-->
+<!--                <button class="extra-btn remove-all">Remove all</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </main>-->
+<!--</div>-->
