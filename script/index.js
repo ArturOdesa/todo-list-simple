@@ -139,6 +139,7 @@ return taskItem;
          dataTasks.forEach(task => {
              if (this.nextElementSibling.textContent === task.name) {
                  task.completed = true;
+                 this.nextElementSibling.nextElementSibling.firstChild.removeEventListener('click', editTaskHandler);
              }
          })
      }
@@ -148,9 +149,11 @@ return taskItem;
         dataTasks.forEach(task => {
             if (this.nextElementSibling.textContent === task.name) {
                 task.completed = false;
+                this.nextElementSibling.nextElementSibling.firstChild.addEventListener('click', editTaskHandler);
             }
         })
      }
+
  }
 
  function editTaskHandler() {
