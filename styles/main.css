@@ -148,6 +148,7 @@ border: solid purple;
     align-items: center;
     justify-content: space-between;
     font-size: 14px;
+    transition: padding 0.3s linear;
 }
 
 .task-text {
@@ -191,6 +192,7 @@ visibility: hidden;
 
 .completed {
     background-color: rgba(0, 230, 0, 0.4);
+    padding: 5px 10px;
 }
 
 .task-btn-holder {
@@ -277,12 +279,12 @@ visibility: hidden;
     text-decoration: underline;
     font-style: italic;
 flex-grow: 1;
-    border: none;
-
+    border: solid 1px #292929;
+    padding: 10px;
+    transition: 0.5s;
 }
 
 .task-new-text:focus {
-    border: none;
     outline: none;
     font-style: italic;
 }
