@@ -31,6 +31,7 @@ let startMessage = document.querySelector('#start-message');
      let checkbox = document.createElement('input');
      checkbox.type = 'checkbox';
      checkbox.classList.add('checkbox');
+     checkbox.addEventListener('click', checkboxClickHandler)
      let spanTask = document.createElement('span');
      spanTask.classList.add('task-text');
      spanTask.innerText = setTaskText(dataTasks);
@@ -52,6 +53,29 @@ let startMessage = document.querySelector('#start-message');
 
 
 return taskItem;
+ }
+
+ function checkboxClickHandler() {
+     if (this.checked) {
+         this.parentElement.classList.add('completed');
+         this.nextElementSibling.classList.add('completed-text')
+         dataTasks.forEach(task => {
+             if (this.nextElementSibling.textContent === task.name) {
+                 task.completed = true;
+                 console.log(dataTasks);
+             }
+         })
+     }
+     else {
+         this.parentElement.classList.remove('completed');
+         this.nextElementSibling.classList.remove('completed-text');
+        dataTasks.forEach(task => {
+            if (this.nextElementSibling.textContent === task.name) {
+                task.completed = false;
+                console.log(dataTasks);
+            }
+        })
+     }
  }
 
  function editTaskHandler() {
