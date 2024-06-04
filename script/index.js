@@ -1,6 +1,5 @@
 
 let dataTasks = [];
-
 let startMessage = document.querySelector('#start-message');
  let todayDateP = document.querySelector('#today-date');
  let taskInput = document.querySelector("#task-input");
@@ -18,7 +17,6 @@ let startMessage = document.querySelector('#start-message');
      if (taskInput.value) {
      dataTasks.push(createTask(taskInput.value, dataTasks.length + 1));
      let taskList = document.querySelector('#task-list');
-     console.log(dataTasks);
      taskInput.value = '';
      taskList.append(createTaskItem());
      if (dataTasks.length !== 0) {
@@ -42,6 +40,8 @@ let startMessage = document.querySelector('#start-message');
      taskBtnEdit.classList.add('task-btn', 'edit');
      let taskBtnDelete = document.createElement('button');
      taskBtnDelete.classList.add('task-btn', 'delete');
+     // taskBtnDelete.value = dataTasks[dataTasks.length - 1].id;
+     taskBtnDelete.addEventListener('click', deleteTaskHandler);
 
 
      taskItem.append(checkbox);
@@ -52,6 +52,22 @@ let startMessage = document.querySelector('#start-message');
 
 
 return taskItem;
+ }
+
+ function deleteTaskHandler () {
+     let btnHolder = this.parentElement;
+     let taskText = btnHolder.previousElementSibling.textContent;
+     for (let i = 0; i < dataTasks.length; i++) {
+         if (dataTasks[i].name === taskText) {
+             dataTasks.splice(i, 1);
+         }
+         if (dataTasks.length === 0) {
+             startMessage.hidden = false;
+         }
+     }
+
+     btnHolder.parentElement.remove();
+
  }
 
  function setTaskText (tasks) {
