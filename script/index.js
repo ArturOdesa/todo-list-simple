@@ -38,9 +38,9 @@ let startMessage = document.querySelector('#start-message');
      taskBtnDiv.classList.add('task-btn-holder');
      let taskBtnEdit = document.createElement('button');
      taskBtnEdit.classList.add('task-btn', 'edit');
+     taskBtnEdit.addEventListener('click', editTaskHandler);
      let taskBtnDelete = document.createElement('button');
      taskBtnDelete.classList.add('task-btn', 'delete');
-     // taskBtnDelete.value = dataTasks[dataTasks.length - 1].id;
      taskBtnDelete.addEventListener('click', deleteTaskHandler);
 
 
@@ -53,6 +53,51 @@ let startMessage = document.querySelector('#start-message');
 
 return taskItem;
  }
+
+ function editTaskHandler() {
+     this.removeEventListener('click', editTaskHandler);
+     let btnHolder = this.parentElement;
+     let taskSpan = btnHolder.previousElementSibling;
+     let checkboxEl = taskSpan.previousElementSibling;
+     let taskEditInput = document.createElement('input');
+     taskEditInput.classList.add('task-new-text');
+     taskEditInput.value = taskSpan.textContent;
+     taskEditInput.addEventListener('keydown',(event) => {
+         if (event.key === 'Enter') {
+             for (let task of dataTasks) {
+                 if (taskSpan.textContent === task.name) {
+                     task.name = taskEditInput.value;
+                     taskSpan.textContent = task.name;
+                     taskEditInput.hidden = true;
+                     taskSpan.hidden = false;
+                     this.addEventListener('click', editTaskHandler);
+                 }
+             }
+         }
+         if (event.key === 'Escape') {
+             taskEditInput.hidden = true;
+             taskSpan.hidden = false;
+             this.addEventListener('click', editTaskHandler);
+         }
+     })
+     this.addEventListener('click', () => {
+         for (let task of dataTasks) {
+             if (taskSpan.textContent === task.name) {
+                 task.name = taskEditInput.value;
+                 taskSpan.textContent = task.name;
+                 taskEditInput.hidden = true;
+                 taskSpan.hidden = false;
+                 this.addEventListener('click', editTaskHandler);
+             }
+         }
+     })
+     taskSpan.hidden = true;
+     checkboxEl.after(taskEditInput);
+     taskSpan.hidden = true;
+
+
+ }
+
 
  function deleteTaskHandler () {
      let btnHolder = this.parentElement;
@@ -94,7 +139,7 @@ return taskItem;
      }
  }
 
- removeAll(dataTasks);
+
 
 let setTodayDate = function () {
     let currentDate = new Date();
@@ -103,8 +148,8 @@ let setTodayDate = function () {
         month: 'long',
         weekday: 'long'
     };
-    let formattedDate = currentDate.toLocaleDateString('En-en', options);
-    todayDateP.textContent = formattedDate;
+    todayDateP.textContent = currentDate.toLocaleDateString('En-en', options);
 }
 
 setTodayDate();
+// removeAll(dataTasks);
