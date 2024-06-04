@@ -278,7 +278,7 @@ visibility: hidden;
     color: #292929;
     text-decoration: underline;
     font-style: italic;
-flex-grow: 1;
+    flex-grow: 1;
     border: solid 1px #292929;
     padding: 10px;
     transition: 0.5s;
@@ -304,11 +304,19 @@ flex-grow: 1;
     .extra-btn {
         margin-bottom: 10px;
     }
+
+    .task-new-text {
+        padding: 5px;
+    }
 }
 
 @media (max-width: 350px) {
     .header, .main {
         min-width: 270px;
+    }
+    .task-new-text {
+        padding: 0;
+        width: 50%;
     }
 }
 
