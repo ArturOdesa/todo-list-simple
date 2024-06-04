@@ -86,9 +86,7 @@ return taskItem;
 
      for (let i = 0; i < tasksLis.length; i++) {
          let checkbox = tasksLis[i].firstChild;
-         console.log(checkbox.checked);
          if (!checkbox.checked) {
-             console.log(tasksLis[i]);
              tasksLis[i].classList.add('hide-element');
          }
          else {
@@ -118,9 +116,7 @@ return taskItem;
 
      for (let i = 0; i < tasksLis.length; i++) {
          let checkbox = tasksLis[i].firstChild;
-         console.log(checkbox.checked);
          if (checkbox.checked) {
-             console.log(tasksLis[i]);
              tasksLis[i].classList.add('hide-element');
          }
          else {
