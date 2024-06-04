@@ -17,7 +17,7 @@
         <div class="header-title-holder">
     <h1 class="header-title">ToDo List</h1>
         <div class="date">
-            <p class="today-date"></p>
+            <p class="today-date" id="today-date"></p>
         </div>
         </div>
     </div>
@@ -28,20 +28,19 @@
         <div class="container">
 <!--        .input-holder-->
         <div class="input-holder">
-            <input class="task-input" type="text" placeholder="Enter your task">
-            <button class="add-task-btn">+</button>
+            <input class="task-input" type="text" placeholder="Enter your task" id="task-input">
+            <button class="add-task-btn" id="add-task-btn">+</button>
         </div>
-        <p class="start-message">You don't have any tasks</p>
+        <p class="start-message" id="start-message">You don't have any tasks</p>
 <!--            .task-list-->
-        <ul class="task-list">
-
+        <ul class="task-list" id="task-list">
 
         </ul>
         <div class="extra-btn-holder">
-            <button class="extra-btn show-all">Show all</button>
-            <button class="extra-btn uncompleted">Uncompleted</button>
-            <button class="extra-btn completed-btn">Completed</button>
-            <button class="extra-btn remove-all">Remove all</button>
+            <button class="extra-btn show-all" id="show-all">Show all</button>
+            <button class="extra-btn uncompleted" id="show-uncompleted">Uncompleted</button>
+            <button class="extra-btn completed-btn" id="show-completed">Completed</button>
+            <button class="extra-btn remove-all" id="remove-all">Remove all</button>
         </div>
         </div>
     </main>
