@@ -289,6 +289,10 @@ flex-grow: 1;
     font-style: italic;
 }
 
+.hide-element{
+    display: none;
+}
+
 @media (max-width: 550px) {
     .header, .main {
         min-width: 300px;
