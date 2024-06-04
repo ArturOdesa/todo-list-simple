@@ -4,7 +4,15 @@ let startMessage = document.querySelector('#start-message');
  let todayDateP = document.querySelector('#today-date');
  let taskInput = document.querySelector("#task-input");
  let addTaskBtn = document.querySelector('#add-task-btn');
+let taskList = document.querySelector('#task-list');
+let showAllBtn = document.querySelector('#show-all');
  let removeAllBtn = document.querySelector('#remove-all');
+ let showCompletedBtn = document.querySelector('#show-completed');
+ let showUncompletedBtn = document.querySelector('#show-uncompleted');
+
+showCompletedBtn.addEventListener('click', showCompletedHandler);
+showAllBtn.addEventListener('click', showAllHandler);
+showUncompletedBtn.addEventListener('click', showUncompletedHandler);
 
  addTaskBtn.addEventListener('click', addTaskHandler);
  taskInput.addEventListener('keydown', function (event) {
@@ -16,7 +24,6 @@ let startMessage = document.querySelector('#start-message');
  function addTaskHandler () {
      if (taskInput.value) {
      dataTasks.push(createTask(taskInput.value, dataTasks.length + 1));
-     let taskList = document.querySelector('#task-list');
      taskInput.value = '';
      taskList.append(createTaskItem());
      if (dataTasks.length !== 0) {
@@ -55,6 +62,80 @@ let startMessage = document.querySelector('#start-message');
 return taskItem;
  }
 
+ function showCompletedHandler() {
+     // First way how to get uncompleted task
+
+     // dataTasks.forEach(task => {
+     //     if (!task.completed) {
+     //         let tasksLis = taskList.children;
+     //         for (let i = 0; i < tasksLis.length; i++) {
+     //             let taskSpan = tasksLis[i].firstChild.nextSibling;
+     //             if (task.name === taskSpan.textContent) {
+     //                 tasksLis[i].classList.add('hide-element');
+     //             }
+     //             else {
+     //                 tasksLis[i].classList.remove('hide-element');
+     //             }
+     //         }
+     //     }
+     // })
+
+ //     Second way how to get uncompleted task
+
+     let tasksLis = taskList.children;
+
+     for (let i = 0; i < tasksLis.length; i++) {
+         let checkbox = tasksLis[i].firstChild;
+         console.log(checkbox.checked);
+         if (!checkbox.checked) {
+             console.log(tasksLis[i]);
+             tasksLis[i].classList.add('hide-element');
+         }
+         else {
+             tasksLis[i].classList.remove('hide-element');
+         }
+     }
+
+ }
+
+ function showUncompletedHandler() {
+     // dataTasks.forEach(task => {
+     //     if (task.completed) {
+     //         let tasksLis = taskList.children;
+     //         for (let i = 0; i < tasksLis.length; i++) {
+     //             let taskSpan = tasksLis[i].firstChild.nextSibling;
+     //             if (task.name === taskSpan.textContent) {
+     //                 tasksLis[i].classList.add('hide-element');
+     //             }
+     //             else {
+     //                 tasksLis[i].classList.remove('hide-element');
+     //             }
+     //         }
+     //     }
+     // })
+
+     let tasksLis = taskList.children;
+
+     for (let i = 0; i < tasksLis.length; i++) {
+         let checkbox = tasksLis[i].firstChild;
+         console.log(checkbox.checked);
+         if (checkbox.checked) {
+             console.log(tasksLis[i]);
+             tasksLis[i].classList.add('hide-element');
+         }
+         else {
+             tasksLis[i].classList.remove('hide-element');
+         }
+     }
+ }
+
+ function showAllHandler() {
+     let tasksLis = taskList.children;
+     for (let li of tasksLis) {
+         li.classList.remove('hide-element');
+     }
+ }
+
  function checkboxClickHandler() {
      if (this.checked) {
          this.parentElement.classList.add('completed');
@@ -62,7 +143,6 @@ return taskItem;
          dataTasks.forEach(task => {
              if (this.nextElementSibling.textContent === task.name) {
                  task.completed = true;
-                 console.log(dataTasks);
              }
          })
      }
@@ -72,7 +152,6 @@ return taskItem;
         dataTasks.forEach(task => {
             if (this.nextElementSibling.textContent === task.name) {
                 task.completed = false;
-                console.log(dataTasks);
             }
         })
      }
