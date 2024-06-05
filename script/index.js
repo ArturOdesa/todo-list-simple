@@ -172,6 +172,7 @@ return taskItem;
                      taskSpan.textContent = task.name;
                      taskEditInput.hidden = true;
                      taskSpan.hidden = false;
+                     taskEditInput.remove();
                      this.addEventListener('click', editTaskHandler);
                  }
              }
@@ -179,6 +180,7 @@ return taskItem;
          if (event.key === 'Escape') {
              taskEditInput.hidden = true;
              taskSpan.hidden = false;
+             taskEditInput.remove();
              this.addEventListener('click', editTaskHandler);
          }
      })
@@ -190,12 +192,13 @@ return taskItem;
                  taskEditInput.hidden = true;
                  taskSpan.hidden = false;
                  this.addEventListener('click', editTaskHandler);
+                 taskEditInput.remove();
              }
          }
      })
      taskSpan.hidden = true;
      checkboxEl.after(taskEditInput);
-     taskSpan.hidden = true;
+     // taskSpan.hidden = true;
 
 
  }
